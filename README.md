@@ -1,7 +1,7 @@
 # Weather-Dashboard
 Week-06 homework
 
-See the deployed app here:
+See the deployed app here:https://nekohawke.github.io/cmcd-wk06/
 
 # Challenges, Opportunities for Improvement
 
