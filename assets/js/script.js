@@ -21,8 +21,6 @@ function initPage() {
         axios.get(queryURL)
         .then(function(response){
             console.log(response);
-            
-        //  Method for using "date" objects obtained from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
             const currentDate = new Date(response.data.dt*1000);
             console.log(currentDate);
             const day = currentDate.getDate();
@@ -46,12 +44,10 @@ function initPage() {
             currentUVEl.innerHTML = "UV Index: ";
             currentUVEl.append(UVIndex);
         });
-//  Using saved city name, execute a 5-day forecast get request from open weather map api
         let cityID = response.data.id;
         let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
         axios.get(forecastQueryURL)
         .then(function(response){
-//  Parse response to display forecast for next 5 days underneath current conditions
             console.log(response);
             const forecastEls = document.querySelectorAll(".forecast");
             for (i=0; i<forecastEls.length; i++) {
@@ -101,7 +97,6 @@ function initPage() {
         historyEl.innerHTML = "";
         for (let i=0; i<searchHistory.length; i++) {
             const historyItem = document.createElement("input");
-            // <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com"></input>
             historyItem.setAttribute("type","text");
             historyItem.setAttribute("readonly",true);
             historyItem.setAttribute("class", "form-control d-block bg-white");
